@@ -1,0 +1,155 @@
+//====================================================================================================
+.header {
+	height: 120px;
+	font-weight: 700;
+	border-bottom: 1px solid #000;
+	@include adaptiveValue("font-size", 20, 16);
+	// .header__container
+	&__container {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		display: flex;
+		align-items: center;
+	}
+	// .header__logo
+	&__logo {
+		flex: 0 0 rem(290);
+		a {
+			img {
+				max-width: rem(100);
+			}
+		}
+	}
+	// .header__menu
+	&__menu {
+		flex: 1 1 auto;
+	}
+	// .header__tool-group
+	&__tool-group {
+		display: flex;
+		gap: rem(20);
+		flex: 0 0 rem(290);
+	}
+	// .header__search
+	&__search {
+	}
+	// .header__buttons
+	&__buttons {
+	}
+}
+.menu {
+	// .menu__icon
+	&__icon {
+	}
+	// .menu__body
+	&__body {
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: rem(25);
+	}
+	// .menu__item
+	&__item {
+	}
+	// .menu__link
+	&__link {
+		padding-bottom: rem(10);
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: -10px;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 2px;
+			background-color: #000;
+			opacity: 0;
+			transition: all 0.1s ease 0s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				&::after {
+					opacity: 1;
+					bottom: 0;
+				}
+			}
+		}
+	}
+}
+.icon-menu {
+}
+.search {
+}
+.serach {
+	// .serach__form
+	&__form {
+	}
+}
+.input {
+}
+.buttons-header {
+	display: flex;
+	gap: rem(15);
+	justify-content: center;
+	align-items: center;
+	// .buttons-header__button
+	&__button {
+	}
+}
+
+//====================================================================================================
+
+//Burger
+
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 18px;
+		cursor: pointer;
+		z-index: 5;
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			left: 0px;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: #000;
+		}
+		&::before {
+			top: 0px;
+		}
+		&::after {
+			bottom: 0px;
+		}
+		span {
+			top: calc(50% - 1px);
+		}
+		.menu-open & {
+			&::before,
+			&::after {
+				background-color: #fff;
+			}
+			span {
+				transform: scale(0);
+			}
+			&::before {
+				transform: rotate(-45deg);
+				top: calc(50% - 1px);
+			}
+			&::after {
+				transform: rotate(45deg);
+				bottom: calc(50% - 1px);
+			}
+		}
+	}
+}
