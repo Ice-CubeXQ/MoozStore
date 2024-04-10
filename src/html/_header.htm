@@ -1,30 +1,79 @@
 <header class="header">
 	<div class="header__container">
-		<div class="header__logo">
-			<a href="#"><img src="@img/logos/logo2.png" alt></a>
+		<div class="header__column header__column--logo">
+			<a href="#" class="header__logo"><img src="@img/logos/logo2.png" alt="Logo"></a>
 		</div>
-		<div class="header__menu menu">
-			<button type="button" class="menu__icon icon-menu"><span></span></button>
-			<nav class="menu__body">
-				<ul class="menu__list">
-					<li class="menu__item"><a href class="menu__link">Men</a></li>
-					<li class="menu__item"><a href class="menu__link">Women</a></li>
-					<li class="menu__item"><a href class="menu__link">Accessories</a></li>
-					<li class="menu__item"><a href class="menu__link">Sale</a></li>
-				</ul>
-			</nav>
-		</div>
-		<div class="header__tool-group">
-			<div class="header__search search">
-				<form action="#" class="search__form">
-					<input autocomplete="off" type="text" name="form[search]"
-						data-error="Ошибка" placeholder="Search" class="input search__input">
-				</form>
+		<div class="header__column header__column--menu">
+			<div class="header__menu menu">
+
+				<nav class="menu__body">
+					<ul class="menu__list">
+						<li class="menu__item"><a href class="menu__link">men</a></li>
+						<li class="menu__item"><a href class="menu__link">women</a></li>
+						<li class="menu__item"><a href class="menu__link">accessories</a></li>
+						<li class="menu__item"><a href class="menu__link">sale</a></li>
+					</ul>
+				</nav>
 			</div>
-			<div class="header__buttons buttons-header">
-				<a href="#" class="buttons-header__button">K</a>
-				<a href="#" class="buttons-header__button">M</a>
+		</div>
+		<div class="header__column header__column--user-bar">
+			<div class="header__user-bar user-bar">
+				<button type="button" class="user-bar__search"><img src="@img/icons/myIco/search.svg" alt="Search"></button>
+				<a href="#" class="user-bar__cart"><img src="@img/icons/myIco/shopping.svg" alt="Cart"></a>
+				<a href="#" class="user-bar__account"><img src="@img/icons/myIco/user.svg" alt="User"></a>
+				<button type="button" class="icon-menu"><span></span></button>
 			</div>
 		</div>
 	</div>
+	<div class="search-panel">
+		<div class="search-panel__container">
+			<form action="#" class="search-panel__form">
+				<input autocomplete="off" type="text" name="form[search]" data-error="Ошибка" placeholder class="input input-search">
+				<button type="button" class="search-panel__close">Cancel</button>
+			</form>
+			<div class="search-panel__popular popular-search">
+				<h4 class="popular-search__title">Popular search terms</h4>
+				<ul class="popular-search__items">
+					<li class="popular-search__item"><a href="#" class="popular-search__link">Air Force 1</a></li>
+					<li class="popular-search__item"><a href="#" class="popular-search__link">Jordan</a></li>
+					<li class="popular-search__item"><a href="#" class="popular-search__link">Asics</a></li>
+				</ul>
+			</div>
+			<ul class="search-panel__results search-results">
+				<li class="search-results__item">
+					<a href="#" class="search-results__link search-product">
+						<div class="search-product__image-ibg"><img src="@img/shoes/air-max-dn/air-max-dn-mens-shoes.png" alt></div>
+						<h2 class="search-product__name">nike air max dn</h2>
+						<p class="search-product__description">Men's shoes</p>
+						<p class="search-product__price">160$</p>
+					</a>
+				</li>
+				<li class="search-results__item">
+					<a href="#" class="search-results__link search-product">
+						<div class="search-product__image-ibg"><img src="@img/shoes/air-max-dn/air-max-dn-mens-shoes.png" alt></div>
+						<h2 class="search-product__name">nike air max dn</h2>
+						<p class="search-product__description">Men's shoes</p>
+						<p class="search-product__price">160$</p>
+					</a>
+				</li>
+				<li class="search-results__item">
+					<a href="#" class="search-results__link search-product">
+						<div class="search-product__image-ibg"><img src="@img/shoes/air-max-dn/air-max-dn-mens-shoes.png" alt></div>
+						<h2 class="search-product__name">nike air max dn</h2>
+						<p class="search-product__description">Men's shoes</p>
+						<p class="search-product__price">160$</p>
+					</a>
+				</li>
+				<li class="search-results__item">
+					<a href="#" class="search-results__link search-product">
+						<div class="search-product__image-ibg"><img src="@img/shoes/air-max-dn/air-max-dn-mens-shoes.png" alt></div>
+						<h2 class="search-product__name">nike air max dn</h2>
+						<p class="search-product__description">Men's shoes</p>
+						<p class="search-product__price">160$</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
 </header>

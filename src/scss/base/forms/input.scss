@@ -13,7 +13,7 @@ textarea {
 	width: 100%;
 	display: block;
 	padding: 0px 20px;
-	border: 1px solid #eee;
+
 	outline: none;
 	&._focus {
 	}
@@ -25,14 +25,7 @@ textarea.input {
 	padding: 0px 0px;
 }
 
-.search__input {
+.input-search {
 	border-radius: 20px !important;
-	border: none;
-	background-color: $mainGray;
-	padding: 5px 20px;
-	&._form-focus {
-		background-color: #dedede;
-	}
-	&._error {
-	}
+	padding: 10px 20px;
 }

@@ -1,40 +1,54 @@
 //====================================================================================================
 .header {
-	height: 120px;
-	font-weight: 700;
-	border-bottom: 1px solid #000;
-	@include adaptiveValue("font-size", 20, 16);
 	// .header__container
 	&__container {
-		padding-top: 10px;
-		padding-bottom: 10px;
 		display: flex;
+		justify-content: space-between;
+		gap: rem(20);
 		align-items: center;
+		padding: 10px 15px;
+		@include adaptiveValue("height", 120, 50);
+	}
+	// .header__column
+	&__column {
+	}
+	// .header__column--logo
+	&__column--logo {
+		display: flex;
+		justify-content: start;
+		@media (min-width: $mobile) {
+			flex: 0 1 200px;
+		}
 	}
 	// .header__logo
 	&__logo {
-		flex: 0 0 rem(290);
-		a {
-			img {
-				max-width: rem(100);
+		@include adaptiveValue("width", 100, 50);
+		img {
+			width: 100%;
+		}
+		transition: transform 0.6s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				transform: rotate(-90deg);
 			}
 		}
 	}
+	// .header__column--menu
+	&__column--menu {
+	}
 	// .header__menu
 	&__menu {
-		flex: 1 1 auto;
 	}
-	// .header__tool-group
-	&__tool-group {
+	// .header__column--user-bar
+	&__column--user-bar {
 		display: flex;
-		gap: rem(20);
-		flex: 0 0 rem(290);
+		justify-content: end;
+		@media (min-width: $mobile) {
+			flex: 0 1 200px;
+		}
 	}
-	// .header__search
-	&__search {
-	}
-	// .header__buttons
-	&__buttons {
+	// .header__user-bar
+	&__user-bar {
 	}
 }
 .menu {
@@ -43,61 +57,231 @@
 	}
 	// .menu__body
 	&__body {
+		@media (max-width: $mobile) {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			right: -100%;
+			transition: right 0.3s ease 0.1s;
+			background-color: $mainGray;
+			z-index: 2;
+			@include adaptiveValue("padding-top", 170, 100);
+			&::before {
+				content: "";
+				top: -100%;
+				position: fixed;
+				width: 100%;
+				@include adaptiveValue("height", 140, 70);
+				right: 0;
+				transition: top 0.4s ease 0s;
+				background-color: $mainColor;
+			}
+
+			.menu-open & {
+				right: 0;
+				&::before {
+					top: 0;
+				}
+			}
+		}
 	}
 	// .menu__list
 	&__list {
 		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: rem(25);
+		gap: rem(30);
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 	// .menu__item
 	&__item {
 	}
 	// .menu__link
 	&__link {
-		padding-bottom: rem(10);
+		font-size: rem(20);
+		text-transform: capitalize;
+		font-weight: 500;
 		position: relative;
-		&::after {
-			content: "";
-			position: absolute;
-			bottom: -10px;
-			left: 0;
-			display: block;
-			width: 100%;
-			height: 2px;
-			background-color: #000;
-			opacity: 0;
-			transition: all 0.1s ease 0s;
+		padding-bottom: rem(7);
+		@media (max-width: $mobile) {
+			font-size: rem(35);
+			line-height: math.div(35, 20);
 		}
 		@media (any-hover: hover) {
 			&:hover {
-				&::after {
-					opacity: 1;
+				&::before {
 					bottom: 0;
+					opacity: 1;
 				}
+			}
+		}
+		&::before {
+			content: "";
+			transition: all 0.2s ease 0s;
+			display: block;
+			position: absolute;
+			bottom: -20%;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			background-color: $mainColor;
+			opacity: 0;
+		}
+	}
+}
+
+.user-bar {
+	display: flex;
+	gap: rem(20);
+	// .user-bar__search
+	&__search {
+		@include adaptiveValue("width", 30, 25);
+		img {
+			width: 100%;
+			transform: scale(1.2);
+		}
+		transition: transform 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				transform: translate(0px, -3px);
+			}
+		}
+	}
+	// .user-bar__account
+	&__account {
+		@include adaptiveValue("width", 30, 25);
+		img {
+			width: 100%;
+			transform: scale(1.1);
+		}
+		transition: transform 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				transform: translate(0px, -3px);
+			}
+		}
+	}
+	// .user-bar__cart
+	&__cart {
+		@include adaptiveValue("width", 30, 25);
+		img {
+			width: 100%;
+		}
+		transition: transform 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				transform: translate(0px, -3px);
 			}
 		}
 	}
 }
-.icon-menu {
-}
-.search {
-}
-.serach {
-	// .serach__form
+
+.search-panel {
+	position: fixed;
+	overflow: auto;
+	width: 100%;
+	height: 100%;
+	top: -100%;
+	left: 0;
+	z-index: 10;
+	background-color: $mainGray;
+	padding-top: 50px;
+	padding-bottom: 30px;
+	transition: top 0.6s ease 0s;
+	&._open {
+		top: 0;
+	}
+	// .search-panel__container
+	&__container {
+		display: grid;
+		row-gap: rem(40);
+	}
+	// .search-panel__form
 	&__form {
+		display: flex;
+		gap: rem(20);
+		align-items: center;
+	}
+	// .search-panel__close
+	&__close {
+		font-size: rem(20);
+		font-weight: 500;
+	}
+	// .search-panel__popular
+	&__popular {
+	}
+	// .search-panel__results
+	&__results {
 	}
 }
-.input {
+
+.popular-search {
+	font-weight: 500;
+	// .popular-search__title
+	&__title {
+		font-size: rem(18);
+		color: $mainFontGray;
+		&:not(:last-child) {
+			margin-bottom: rem(20);
+		}
+	}
+	// .popular-search__items
+	&__items {
+		display: grid;
+		row-gap: rem(7);
+	}
+	// .popular-search__item
+	&__item {
+	}
+	// .popular-search__link
+	&__link {
+		font-size: rem(22);
+		transition: color 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: #3d3d3d;
+			}
+		}
+	}
 }
-.buttons-header {
-	display: flex;
-	gap: rem(15);
-	justify-content: center;
-	align-items: center;
-	// .buttons-header__button
-	&__button {
+.search-results {
+	display: grid;
+	@media (min-width: $mobileSmall) {
+		grid-template-columns: repeat(4, 1fr);
+		@media (max-width: em(1200)) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		@media (max-width: $tablet) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	gap: rem(40);
+	// .search-results__item
+	&__item {
+	}
+	// .search-results__link
+	&__link {
+	}
+}
+.search-product {
+	text-transform: capitalize;
+	display: grid;
+	row-gap: rem(15);
+	// .search-product__image-ibg
+	&__image-ibg {
+		padding-bottom: percent(290, 365);
+	}
+	// .search-product__name
+	&__name {
+	}
+	// .search-product__description
+	&__description {
+		color: $mainFontGray;
+	}
+	// .search-product__price
+	&__price {
 	}
 }
 
@@ -106,12 +290,14 @@
 //Burger
 
 .icon-menu {
+	z-index: 10;
 	display: none;
 	@media (max-width: $mobile) {
 		display: block;
 		position: relative;
-		width: 30px;
-		height: 18px;
+		@include adaptiveValue("width", 35, 25);
+		@include adaptiveValue("height", 30, 25);
+
 		cursor: pointer;
 		z-index: 5;
 		span,
@@ -123,7 +309,7 @@
 			position: absolute;
 			width: 100%;
 			height: 2px;
-			background-color: #000;
+			background-color: $mainColor;
 		}
 		&::before {
 			top: 0px;
