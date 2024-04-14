@@ -1,0 +1,141 @@
+//========================================================================================================================================================
+
+.page {
+    @include adaptiveValue("padding-top", 140, 70);
+    // .page__container
+    &__container {
+    }
+    // .page__title
+    &__title {
+        font-size: rem(30);
+        text-transform: capitalize;
+        font-weight: 500;
+        line-height: 1.2;
+        &:not(:last-child) {
+            margin-bottom: rem(30);
+        }
+    }
+}
+
+.product-page {
+    display: flex;
+    gap: rem(10);
+    // .product-page__side-bar
+    &__side-bar {
+        flex: 0 0 300px;
+    }
+    // .product-page__items
+    &__items {
+        flex: 1 1 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: rem(20);
+    }
+    // .product-page__item
+    &__item {
+        overflow: hidden;
+    }
+}
+
+.side-bar {
+    font-weight: 500;
+    text-transform: capitalize;
+
+    // .side-bar__wrapper
+    &__wrapper {
+        max-height: 700px;
+        padding: 20px;
+    }
+    // .side-bar__categories
+    &__categories {
+        display: grid;
+        gap: rem(15);
+        &:not(:last-child) {
+            margin-bottom: rem(20);
+        }
+    }
+    // .side-bar__link
+    &__link {
+        font-size: rem(20);
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $mainFontGray;
+            }
+        }
+    }
+    // .side-bar__filters
+    &__filters {
+    }
+}
+.filters {
+    border-top: 2px solid $mainGray;
+    padding-top: rem(15);
+    // .filters__list
+    &__list {
+        display: grid;
+        row-gap: rem(15);
+    }
+    // .filters__item
+    &__item {
+        font-size: rem(20);
+    }
+}
+.item-filter {
+}
+
+.product-item {
+    font-size: rem(20);
+    display: grid;
+    row-gap: rem(10);
+    &:not(:last-child) {
+        margin-bottom: rem(7);
+    }
+    // .product-item__image-ibg
+    &__image-ibg {
+        overflow: hidden;
+        img {
+            transition: transform 0.3s ease 0s;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                img {
+                    transform: scale(1.03);
+                }
+            }
+        }
+        padding-bottom: percent(450, 450);
+    }
+
+    // .product-item__name
+    &__name {
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+    // .product-item__description
+    &__description {
+        color: $mainFontGray;
+    }
+    // .product-item__price
+    &__price {
+        font-weight: 500;
+    }
+    // .product-item__colorways
+    &__colorways {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: rem(4);
+        max-height: rem(70);
+    }
+    // .product-item__colorway
+    &__colorway {
+        height: 70px;
+    }
+    // .product-item__image-ibg
+    &__colorway-image-ibg {
+        display: block;
+        height: 100%;
+    }
+}
+
+//========================================================================================================================================================

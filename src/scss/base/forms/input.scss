@@ -8,12 +8,12 @@ textarea {
 	-moz-appearance: none;
 	appearance: none;
 }
+
 .input {
 	border-radius: 0 !important;
 	width: 100%;
 	display: block;
 	padding: 0px 20px;
-
 	outline: none;
 	&._focus {
 	}
@@ -24,8 +24,28 @@ textarea.input {
 	resize: none;
 	padding: 0px 0px;
 }
-
+//========================================================================================================================================================
+input.input-search::placeholder {
+	color: $mainFontGray;
+}
 .input-search {
 	border-radius: 20px !important;
 	padding: 10px 20px;
+	background-color: #f5f5f5;
+	font-weight: 500;
+	font-size: rem(18);
+	&._form-focus {
+		background-color: #c9c9c9;
+	}
+}
+//========================================================================================================================================================
+.form__input {
+	padding: 10px 0px;
+	@include adaptiveValue("font-size", 20, 18);
+	color: #f5f5f5;
+	background-color: #000;
+	border-bottom: 3px solid #f5f5f55f;
+	&._form-focus {
+		border-bottom: 3px solid #ffffff;
+	}
 }

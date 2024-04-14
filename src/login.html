@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.htm',{
+    "title":"Login"
+    })
+    <body>
+        <div class="wrapper">
+            <main class="login-page">
+                <div class="login-page__container">
+                    <div class="login-page__form-column">
+                        <form action="#" class="form">
+                            <h2 class="form__title">Enter your account</h2>
+                            
+                            <div class="form__line">
+                                <input autocomplete="off" type="email" name="form[user-email]" data-error="Ошибка" placeholder="Your Email" class="input form__input">
+                            </div>
+                            <div class="form__line">
+                                <input autocomplete="off" type="password" name="form[user-pass]" data-error="Ошибка" placeholder="Password" class="input form__input">
+                            </div>
+                            <button class="form__button" type="submit">SignIn Now</button>
+                            
+                        </form>
+                        
+                    </div>
+                    <div class="login-page__decore-column login-decore-column">
+
+                        <div class="login-decore-column__slider">
+                            <div class="login-decore-column__swiper">
+                                <div class="login-decore-column__slide">
+                                    <img src="@img/shoes/air-max-dn/green/01.png" alt="image">
+                                </div>
+                                <div class="login-decore-column__slide">
+                                    <img src="@img/shoes/nike-air-force1/black/01.png" alt="image">
+                                </div>
+                                <div class="login-decore-column__slide">
+                                    <img src="@img/shoes/air-max-dn/black/01.png" alt="image">
+                                </div>
+                                <div class="login-decore-column__slide">
+                                    <img src="@img/shoes/nike-dunk-low-retro-premium/01.png" alt="image">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="login-decore-column-reverse__slider">
+                            <div class="login-decore-column-reverse__swiper">
+            
+                                <div class="login-decore-column-reverse__slide">
+                                    <img src="@img/shoes/air-max-dn/white/01.png" alt="image">
+                                </div>
+                                <div class="login-decore-column-reverse__slide">
+                                    <img src="@img/shoes/air-max-dn/green/01.png" alt="image">
+                                </div>
+                                <div class="login-decore-column-reverse__slide">
+                                    <img src="@img/shoes/nike-air-force1/black/01.png" alt="image">
+                                </div>
+                                <div class="login-decore-column-reverse__slide">
+                                    <img src="@img/shoes/air-max-dn/black/01.png" alt="image"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        @@include('html/_popup.htm',{})
+        @@include('html/_js.htm',{})
+    </body>
+</html>

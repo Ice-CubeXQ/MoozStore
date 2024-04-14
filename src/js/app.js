@@ -31,7 +31,7 @@ import * as flsFunctions from "./files/functions.js";
 /* (i) необходимо для корректного отображения webp из css  */
 flsFunctions.isWebp();
 /* Добавление класса touch для HTML если браузер мобильный */
-// flsFunctions.addTouchClass();
+flsFunctions.addTouchClass();
 /* Добавление loaded для HTML после полной загрузки страницы */
 // flsFunctions.addLoadedClass();
 /* Модуль для работы с меню (Бургер) */
@@ -123,7 +123,7 @@ flsForms.formFieldsInit();
 Документация плагина: https://swiperjs.com/
 Сниппет(HTML): swiper
 */
-// import "./files/sliders.js";
+import "./files/sliders.js";
 
 // Модули работы с прокруткой страницы ========================================================================================================================================================================================================================================================
 
@@ -133,7 +133,7 @@ flsForms.formFieldsInit();
 Документация плагина: https://github.com/Grsmto/simplebar/tree/master/packages/simplebar
 Сниппет(HTML): 
 */
-// import './files/scroll/simplebar.js';
+import "./files/scroll/simplebar.js";
 
 /*
 Ленивая (отложенная) загрузка картинок
@@ -158,7 +158,7 @@ import * as flsScroll from "./files/scroll/scroll.js";
 // flsScroll.headerScroll();
 
 // Функционал липкого блока
-// flsScroll.stickyBlock();
+flsScroll.stickyBlock();
 
 // Галерея ========================================================================================================================================================================================================================================================
 /*

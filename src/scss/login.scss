@@ -1,0 +1,120 @@
+//========================================================================================================================================================
+.wrapper {
+}
+.login-page {
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // .login-page__container
+    &__container {
+        @media (max-width: $mobile) {
+            width: 100%;
+        }
+        @media (min-width: $mobile) {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            @media (max-width: $tablet) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            gap: rem(40);
+        }
+    }
+    // .login-page__form-column
+    &__form-column {
+        align-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    // .login-page__decore-column
+    &__decore-column {
+    }
+}
+
+.form {
+    @media (max-width: $mobile) {
+        width: 100%;
+    }
+    padding: 40px 0px;
+    display: grid;
+    row-gap: rem(30);
+    // .form__title
+    &__title {
+        color: #f5f5f5;
+        font-weight: 500;
+        letter-spacing: em(2, 30);
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 50, 10);
+        }
+        @include adaptiveValue("font-size", 40, 35);
+    }
+    // .form__line
+    &__line {
+    }
+    // .form__input
+    &__input {
+    }
+    // .form__button
+    &__button {
+        background-color: #ffffff;
+        border-radius: 20px;
+        justify-self: center;
+        padding: 10px 20px;
+        font-size: 20px;
+        font-weight: 700;
+    }
+    //.form__link
+    &__link {
+        padding-bottom: rem(2);
+        justify-self: center;
+        color: #f5f5f5;
+        border-bottom: 2px solid #f5f5f500;
+        transition: border 0.3s ease 0s;
+        @include adaptiveValue("font-size", 20, 18);
+        @media (any-hover: hover) {
+            &:hover {
+                border-bottom: 2px solid #f5f5f5;
+            }
+        }
+    }
+}
+
+.login-decore-column {
+    @media (max-width: $mobile) {
+        display: none;
+    }
+    height: 700px;
+    display: grid;
+    @media (min-width: $tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    gap: rem(7);
+    // .login-decore-column__slider
+    &__slider {
+        @media (max-width: $tablet) {
+            display: none;
+        }
+    }
+    // .login-decore-column__swiper
+    &__swiper {
+    }
+    // .login-decore-column__slide
+    &__slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 100%;
+        }
+    }
+}
+.login-decore-column-reverse__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 100%;
+    }
+}
+//========================================================================================================================================================
