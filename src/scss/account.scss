@@ -1,0 +1,147 @@
+.account-page {
+    @include adaptiveValue("padding-top", 140, 70);
+    // .account-page__container
+    &__container {
+        display: grid;
+        row-gap: rem(40);
+    }
+    // .account-page__first-row
+    &__first-row {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: rem(60);
+    }
+    // .account-page__profile
+    &__profile {
+    }
+    // .account-page__my-discount
+    &__my-discount {
+    }
+    // .account-page__second-row
+    &__second-row {
+    }
+    // .account-page__orders
+    &__orders {
+    }
+}
+.profile {
+    padding: 40px 15px;
+    background-color: $mainGray;
+
+    display: grid;
+    justify-items: center;
+    row-gap: rem(30);
+    // .profile__image-ibg
+    &__image {
+        max-width: rem(200);
+        max-height: rem(200);
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid $mainColor;
+        img {
+            width: 100%;
+        }
+    }
+    // .profile__info
+    &__info {
+        font-weight: 700;
+        display: grid;
+        row-gap: rem(15);
+    }
+    // .profile__name
+    &__name {
+        font-size: rem(30);
+        text-transform: uppercase;
+    }
+    // .profile__email
+    &__email {
+        color: $mainFontGray;
+        font-size: rem(22);
+    }
+    // .profile__button
+    &__button {
+        font-size: rem(20);
+        text-transform: capitalize;
+    }
+}
+.my-discount-block {
+    position: relative;
+    overflow: hidden;
+    padding: rem(20);
+    background-color: #202020;
+    // .my-discount-block__info
+    &__info {
+        font-weight: 500;
+        color: $mainGray;
+        display: grid;
+        row-gap: rem(10);
+        color: #fff;
+    }
+    // .my-discount-block__title
+    &__title {
+        text-transform: capitalize;
+        font-size: rem(50);
+        letter-spacing: em(2, 50);
+    }
+    // .my-discount-block__value
+    &__value {
+        font-size: rem(70);
+    }
+    // .my-discount-block__spent
+    &__spent {
+        color: $mainGray;
+        font-size: rem(25);
+        font-weight: 400;
+    }
+
+    &__decore {
+        position: absolute;
+        // .my-discount-block__decore--white
+        &--white {
+            bottom: -60px;
+            right: -70px;
+            // width: rem(300);
+            @include adaptiveValue("width", 300, 110);
+            // @include adaptiveValue("height", 290, 90);
+            height: rem(290);
+            transform: rotate(-20deg);
+            background-color: $mainBackground;
+            z-index: 2;
+        }
+        // .my-discount-block__decore--grey
+        &--grey {
+            top: 0;
+            right: 0;
+            height: 70%;
+            // width: rem(200);
+            @include adaptiveValue("width", 200, 40);
+            background-color: #3e3e3e;
+        }
+    }
+}
+
+.orders-block {
+    // .orders-block__title
+    &__title {
+    }
+    // .orders-block__items
+    &__items {
+    }
+    // .orders-block__item
+    &__item {
+    }
+}
+.order-item {
+    // .order-item__name
+    &__name {
+    }
+    // .order-item__image-ibg
+    &__image-ibg {
+    }
+    // .order-item__price
+    &__price {
+    }
+    // .order-item__status
+    &__status {
+    }
+}

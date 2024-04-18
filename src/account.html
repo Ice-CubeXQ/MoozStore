@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.htm',{
+    "title":"MyAccount"
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.htm',{})
+            <main class="account-page">
+                <div class="account-page__container">
+                    <div class="account-page__first-row">
+                        <div class="account-page__profile profile">
+                            <div class="profile__image"><img src="@img/account/user-image.png" alt="user"></div>
+                            <div class="profile__info">
+                                <div class="profile__name">Ilya Mirny</div>
+                                <div class="profile__email">ilyabigballs69@gmail.com</div>
+                                <buttton type="submit" class="profile__button">change</buttton>
+                            </div>
+                        </div>
+                        <div class="account-page__my-discount my-discount-block">
+                            <div class="my-discount-block__info">
+                                <div class="my-discount-block__title">My discount</div>
+                                <div class="my-discount-block__value">15%</div>
+                                <div class="my-discount-block__spent">The amount spent <span>1270$</span></div>
+                                <div class="my-discount-block__decore my-discount-block__decore--white"></div>
+                                <div class="my-discount-block__decore my-discount-block__decore--grey"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="account-page__second-row">
+                        <div class="account-page__orders orders-block">
+                            <div class="orders-block__title">Orders <span>4</span></div>
+                            <div class="orders-block__items">
+                                <div class="orders-block__item order-item">
+                                    <div class="order-item__name">nike air force 1</div>
+                                    <div class="order-item__image-ibg"><img src="@img/shoes/nike-air-force1/black/01.png" alt></div>
+                                    <div class="order-item__price">152$</div>
+                                    <div class="order-item__status _sent-order">Sent</div>
+                                </div>
+                                <div class="orders-block__item order-item">
+                                    <div class="order-item__name">nike air force 1</div>
+                                    <div class="order-item__image-ibg"><img src="@img/shoes/nike-air-force1/black/01.png" alt></div>
+                                    <div class="order-item__price">152$</div>
+                                    <div class="order-item__status _deliv-order">delivered</div>
+                                </div>
+                                <div class="orders-block__item order-item">
+                                    <div class="order-item__name">nike air force 1</div>
+                                    <div class="order-item__image-ibg"><img src="@img/shoes/nike-air-force1/black/01.png" alt></div>
+                                    <div class="order-item__price">152$</div>
+                                    <div class="order-item__status _deliv-order">delivered</div>
+                                </div>
+                                <div class="orders-block__item order-item">
+                                    <div class="order-item__name">nike air force 1</div>
+                                    <div class="order-item__image-ibg"><img src="@img/shoes/nike-air-force1/black/01.png" alt></div>
+                                    <div class="order-item__price">152$</div>
+                                    <div class="order-item__status _deliv-order">delivered</div>
+                                </div>
+                                <div class="orders-block__item order-item">
+                                    <div class="order-item__name">nike air force 1</div>
+                                    <div class="order-item__image-ibg"><img src="@img/shoes/nike-air-force1/black/01.png" alt></div>
+                                    <div class="order-item__price">152$</div>
+                                    <div class="order-item__status _deliv-order">delivered</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            @@include('html/_footer.htm',{})
+        </div>
+        @@include('html/_popup.htm',{})
+        @@include('html/_js.htm',{})
+    </body>
+</html>
