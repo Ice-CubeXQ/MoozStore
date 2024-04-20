@@ -64,59 +64,114 @@
         text-transform: capitalize;
     }
 }
+
 .my-discount-block {
-    position: relative;
-    overflow: hidden;
-    padding: rem(20);
     background-color: #202020;
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
     // .my-discount-block__info
     &__info {
-        font-weight: 500;
-        color: $mainGray;
         display: grid;
-        row-gap: rem(10);
-        color: #fff;
+        padding: 20px;
     }
-    // .my-discount-block__title
+    // .my-discount-block__items
+    &__items {
+        align-content: start;
+    }
+    // .my-discount-block__level
+    &__level {
+        align-content: center;
+    }
+    // .my-discount-block__decore
+    &__decore {
+    }
+}
+.discount-items {
+    display: grid;
+    color: $mainBackground;
+    font-weight: 500;
+    @include adaptiveValue("font-size", 60, 60);
+    line-height: 1.2;
+    // .discount-items__title
     &__title {
         text-transform: capitalize;
-        font-size: rem(50);
-        letter-spacing: em(2, 50);
     }
-    // .my-discount-block__value
+    // .discount-items__value
     &__value {
-        font-size: rem(70);
+        font-weight: 700;
+        &:not(:last-child) {
+            margin-bottom: rem(20);
+        }
     }
-    // .my-discount-block__spent
+    // .discount-items__spent
     &__spent {
-        color: $mainGray;
-        font-size: rem(25);
         font-weight: 400;
+        color: $mainGray;
+        @include adaptiveValue("font-size", 30, 30);
     }
-
-    &__decore {
-        position: absolute;
-        // .my-discount-block__decore--white
-        &--white {
-            bottom: -60px;
-            right: -70px;
-            // width: rem(300);
-            @include adaptiveValue("width", 300, 110);
-            // @include adaptiveValue("height", 290, 90);
-            height: rem(290);
-            transform: rotate(-20deg);
-            background-color: $mainBackground;
-            z-index: 2;
-        }
-        // .my-discount-block__decore--grey
-        &--grey {
+}
+.discount-level {
+    // .discount-level__line
+    &__line {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
             top: 0;
-            right: 0;
-            height: 70%;
-            // width: rem(200);
-            @include adaptiveValue("width", 200, 40);
-            background-color: #3e3e3e;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: $mainFontGray;
+            z-index: 1;
         }
+    }
+    // .discount-level__active-line
+    &__active-line {
+        transition: width 0.6s ease 0s;
+        content: "";
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 0;
+        height: 2px;
+        background-color: $mainBackground;
+    }
+    // .discount-level__point
+    &__point {
+        color: $mainGray;
+        width: 40px;
+        padding-top: rem(10);
+    }
+}
+.discount-decore {
+    position: relative;
+    overflow: hidden;
+    // .discount-decore__block
+    &__block {
+        position: absolute;
+    }
+    // .discount-decore__block--white
+    &__block--white {
+        bottom: -50px;
+        right: -70px;
+        width: 100%;
+        height: 50%;
+        transform: rotate(-20deg);
+        background-color: $mainBackground;
+        z-index: 2;
+    }
+    // .discount-decore__block--grey
+    &__block--grey {
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 80%;
+        background-color: $mainFontGray;
     }
 }
 

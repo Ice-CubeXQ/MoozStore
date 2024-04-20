@@ -64,33 +64,6 @@ function toggleSearchPanel() {
     });
   }
 }
-// function changeProductImage() {
-//   const productItems = document.querySelectorAll(".product-page__item");
-//   if (productItems.length) {
-//     productItems.forEach((productItem) => {
-//       const mainImage = productItem.querySelector(".product-item__image-ibg img");
-//       const colorways = productItem.querySelectorAll(".product-item__colorway");
-
-//       colorways.forEach((colorway) => {
-//         const colorwayImage = colorway.querySelector(".product-item__colorway-image-ibg img");
-
-//         colorway.addEventListener("mouseenter", function () {
-//           const imageUrl = colorwayImage.getAttribute("src");
-//           mainImage.setAttribute("src", imageUrl);
-//         });
-
-//         colorway.addEventListener("mouseleave", function () {
-//           const initialImageUrl = mainImage.getAttribute("data-initial-src");
-//           mainImage.setAttribute("src", initialImageUrl);
-//         });
-//       });
-
-//       const initialImageUrl = mainImage.getAttribute("src");
-//       mainImage.setAttribute("data-initial-src", initialImageUrl);
-//     });
-//   }
-// }
-
 function changeProductImage() {
   const productItems = document.querySelectorAll(".product-page__item");
   if (productItems.length) {
@@ -132,7 +105,6 @@ function changeProductImage() {
     });
   }
 }
-
 const shoesDB = {
   nikeAirMaxDn: {
     name: "nike air max dn",
@@ -157,8 +129,21 @@ const shoesDB = {
   },
 };
 
+function calculateDiscountLevel() {
+  const discountBlock = document.querySelector(".my-discount-block");
+  if (discountBlock) {
+    const discountValue = discountBlock.querySelector(".discount-items__value").textContent;
+    const discountValueLine = (100 * parseInt(discountValue)) / 20;
+    const discountActiveLine = document.querySelector(".discount-level__active-line");
+    setTimeout(() => {
+      discountActiveLine.style.cssText = `width:${discountValueLine}%`;
+    }, 200);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   toggleSearchPanel();
   searchShoes();
   changeProductImage();
+  calculateDiscountLevel();
 });
