@@ -4,12 +4,19 @@
     &__container {
         display: grid;
         row-gap: rem(40);
+        @media (max-width: $tablet) {
+            row-gap: rem(15);
+            padding: 0;
+        }
     }
     // .account-page__first-row
     &__first-row {
         display: grid;
-        grid-template-columns: 1fr 2fr;
-        column-gap: rem(60);
+        row-gap: rem(15);
+        @media (min-width: $tablet) {
+            grid-template-columns: 1fr 2fr;
+        }
+        @include adaptiveValue("column-gap", 60, 15, 1550, 991.98, 1);
     }
     // .account-page__profile
     &__profile {
@@ -25,18 +32,15 @@
     }
 }
 .profile {
-    padding: 40px 15px;
-    background-color: $mainGray;
-
+    padding: 25px 15px;
+    background-color: $mainFontGray;
     display: grid;
     justify-items: center;
-    row-gap: rem(30);
+    row-gap: rem(20);
     // .profile__image-ibg
     &__image {
         max-width: rem(200);
-        max-height: rem(200);
         border-radius: 50%;
-        overflow: hidden;
         border: 2px solid $mainColor;
         img {
             width: 100%;
@@ -44,35 +48,50 @@
     }
     // .profile__info
     &__info {
-        font-weight: 700;
         display: grid;
         row-gap: rem(15);
+        font-weight: 700;
+        @include adaptiveValue("font-size", 25, 18);
     }
     // .profile__name
     &__name {
-        font-size: rem(30);
         text-transform: uppercase;
     }
     // .profile__email
     &__email {
-        color: $mainFontGray;
-        font-size: rem(22);
     }
     // .profile__button
     &__button {
-        font-size: rem(20);
-        text-transform: capitalize;
+        cursor: pointer;
+        @include adaptiveValue("font-size", 18, 16);
+        text-transform: uppercase;
+        padding: 5px 15px;
+        justify-self: start;
+        border: 3px solid #343434;
+        color: #343434;
+        transition:
+            color 0.3s ease 0s,
+            border 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $mainColor;
+                border: 3px solid $mainColor;
+            }
+        }
     }
 }
 
 .my-discount-block {
     background-color: #202020;
     display: grid;
-    grid-template-columns: 2.5fr 1fr;
+    @media (min-width: $mobileSmall) {
+        grid-template-columns: 2.5fr 1fr;
+    }
     // .my-discount-block__info
     &__info {
         display: grid;
         padding: 20px;
+        row-gap: rem(20);
     }
     // .my-discount-block__items
     &__items {
@@ -84,13 +103,16 @@
     }
     // .my-discount-block__decore
     &__decore {
+        @media (max-width: $mobileSmall) {
+            display: none;
+        }
     }
 }
 .discount-items {
     display: grid;
     color: $mainBackground;
     font-weight: 500;
-    @include adaptiveValue("font-size", 60, 60);
+    @include adaptiveValue("font-size", 60, 40);
     line-height: 1.2;
     // .discount-items__title
     &__title {
@@ -100,14 +122,23 @@
     &__value {
         font-weight: 700;
         &:not(:last-child) {
-            margin-bottom: rem(20);
+            margin-bottom: rem(30);
         }
     }
     // .discount-items__spent
     &__spent {
         font-weight: 400;
         color: $mainGray;
-        @include adaptiveValue("font-size", 30, 30);
+        @include adaptiveValue("font-size", 30, 18);
+        &:not(:last-child) {
+            margin-bottom: rem(10);
+        }
+    }
+    //.discount-items__to-next-level
+    &__to-next-level {
+        color: $mainFontGray;
+        font-weight: 400;
+        @include adaptiveValue("font-size", 20, 16);
     }
 }
 .discount-level {
@@ -176,27 +207,62 @@
 }
 
 .orders-block {
+    display: grid;
+    row-gap: rem(40);
+    background-color: #202020;
+    padding: rem(30);
+    @media (max-width: $mobileSmall) {
+        padding: 30px 15px;
+    }
+    color: $mainBackground;
     // .orders-block__title
     &__title {
+        @include adaptiveValue("font-size", 45, 30);
+        font-weight: 500;
     }
     // .orders-block__items
     &__items {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        @media (max-width: $tablet) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @media (max-width: $mobile) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        row-gap: rem(40);
+        column-gap: rem(20);
     }
     // .orders-block__item
     &__item {
     }
 }
 .order-item {
+    display: grid;
+    row-gap: rem(10);
     // .order-item__name
     &__name {
+        text-transform: uppercase;
+        line-height: 1.1;
+        @include adaptiveValue("font-size", 22, 16);
     }
     // .order-item__image-ibg
     &__image-ibg {
+        padding-bottom: percent(450, 450);
     }
     // .order-item__price
     &__price {
+        @include adaptiveValue("font-size", 20, 16);
     }
     // .order-item__status
     &__status {
+        font-size: rem(16);
+        text-transform: capitalize;
+        &._sent-order {
+            color: #d6c502;
+        }
+        &._deliv-order {
+            color: #06ab21;
+        }
     }
 }
